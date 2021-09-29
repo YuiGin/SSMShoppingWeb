@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="packageMapper.base.ItemCategoryBaseMapper">
+
+
+    <insert id="insertItemCategory"  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `item_category`
+        (
+        <trim suffixOverrides=",">
+                    <if test="id!=null">
+                        `id`,
+                    </if>
+                    <if test="name!=null">
+                        `name`,
+                    </if>
+                    <if test="pid!=null">
+                        `pid`,
+                    </if>
+                    <if test="isDelete!=null">
+                        `isDelete`,
+                    </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+                <if test="id!=null">
+                    #{id},
+                </if>
+                <if test="name!=null">
+                    #{name},
+                </if>
+                <if test="pid!=null">
+                    #{pid},
+                </if>
+                <if test="isDelete!=null">
+                    #{isDelete},
+                </if>
+        </trim>
+        )
+    </insert>
+
+
+
+
+    <update id="updateItemCategory">
+        UPDATE `item_category`
+        SET
+        <trim suffixOverrides=",">
+            <if test="name != null and name!=''">
+                `name` = #{name},
+            </if>
+            <if test="pid != null">
+                `pid` = #{pid},
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+                `id` = #{id} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `item_category`
+        SET
+        <trim suffixOverrides=",">
+        <if test="set.name != null and set.name!=''">
+            `name` = #{set.name},
+        </if>
+        <if test="set.pid != null">
+            `pid` = #{set.pid},
+        </if>
+        <if test="set.isDelete != null">
+            `isDelete` = #{set.isDelete},
+        </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+                <if test="where.idList != null">
+                    `id` in
+                    <foreach collection="where.idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.idSt !=null">
+                `id` >= #{where.idSt} and
+            </if>
+            <if test="where.idEd!=null">
+                `id` &lt;= #{where.idEd} and
+            </if>
+                <if test="where.nameList != null">
+                    `name` in
+                    <foreach collection="where.nameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyName!=null and where.fuzzyName.size()>0">
+                (
+                <foreach collection="where.fuzzyName"  separator="or" item="item">
+                    `Name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyName!=null and where.rightFuzzyName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyName"  separator="or" item="item">
+                    `Name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.pidList != null">
+                    `pid` in
+                    <foreach collection="where.pidList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.pidSt !=null">
+                `pid` >= #{where.pidSt} and
+            </if>
+            <if test="where.pidEd!=null">
+                `pid` &lt;= #{where.pidEd} and
+            </if>
+                <if test="where.isDeleteList != null">
+                    `isDelete` in
+                    <foreach collection="where.isDeleteList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.isDeleteSt !=null">
+                `isDelete` >= #{where.isDeleteSt} and
+            </if>
+            <if test="where.isDeleteEd!=null">
+                `isDelete` &lt;= #{where.isDeleteEd} and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="packageModel.ItemCategory" id="ItemCategoryMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="pid" column="pid"/>
+        <result property="isDelete" column="isDelete"/>
+    </resultMap>
+
+
+    <select id="queryItemCategory" resultMap="ItemCategoryMap">
+        select
+        <include refid="baseResult"></include>
+        from  `item_category`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="name != null and name!=''">
+                `name` = #{name} and
+            </if>
+            <if test="pid != null">
+                `pid` = #{pid} and
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.ItemCategory$QueryBuilder) == true">
+                <if test="idList != null">
+                    `id` in
+                    <foreach collection="idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                <if test="nameList != null">
+                    `name` in
+                    <foreach collection="nameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyName!=null and fuzzyName.size()>0">
+                    (
+                    <foreach collection="fuzzyName"  separator="or" item="item">
+                        `Name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyName!=null and rightFuzzyName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyName"  separator="or" item="item">
+                        `Name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="pidList != null">
+                    `pid` in
+                    <foreach collection="pidList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="pidSt !=null">
+                    `pid` >= #{pidSt} and
+                </if>
+                <if test="pidEd!=null">
+                    `pid` &lt;= #{pidEd} and
+                </if>
+                <if test="isDeleteList != null">
+                    `isDelete` in
+                    <foreach collection="isDeleteList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="isDeleteSt !=null">
+                    `isDelete` >= #{isDeleteSt} and
+                </if>
+                <if test="isDeleteEd!=null">
+                    `isDelete` &lt;= #{isDeleteEd} and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryItemCategoryLimit1" resultMap="ItemCategoryMap">
+        select
+        <include refid="baseResult"></include>
+        from  `item_category`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="name != null and name!=''">
+                `name` = #{name} and
+            </if>
+            <if test="pid != null">
+                `pid` = #{pid} and
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.ItemCategory$QueryBuilder) == true">
+                    <if test="idList != null">
+                        `id` in
+                        <foreach collection="idList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                    <if test="nameList != null">
+                        `name` in
+                        <foreach collection="nameList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyName!=null and fuzzyName.size()>0">
+                    (
+                    <foreach collection="fuzzyName"  separator="or" item="item">
+                        `Name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyName!=null and rightFuzzyName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyName"  separator="or" item="item">
+                        `Name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="pidList != null">
+                        `pid` in
+                        <foreach collection="pidList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="pidSt !=null">
+                    `pid` >= #{pidSt} and
+                </if>
+                <if test="pidEd!=null">
+                    `pid` &lt;= #{pidEd} and
+                </if>
+                    <if test="isDeleteList != null">
+                        `isDelete` in
+                        <foreach collection="isDeleteList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="isDeleteSt !=null">
+                    `isDelete` >= #{isDeleteSt} and
+                </if>
+                <if test="isDeleteEd!=null">
+                    `isDelete` &lt;= #{isDeleteEd} and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+        `id`,
+        `name`,
+        `pid`,
+        `isDelete`,
+        </trim>
+    </sql>
+
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test = "(_parameter instanceof packageModel.ItemCategory$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                    <if test="fetchFields.fetchFields.id==true">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.fetchFields.name==true">
+                        `name`,
+                    </if>
+                    <if test="fetchFields.fetchFields.pid==true">
+                        `pid`,
+                    </if>
+                    <if test="fetchFields.fetchFields.isDelete==true">
+                        `isDelete`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                    <if test="fetchFields.excludeFields.id==null">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.excludeFields.name==null">
+                        `name`,
+                    </if>
+                    <if test="fetchFields.excludeFields.pid==null">
+                        `pid`,
+                    </if>
+                    <if test="fetchFields.excludeFields.isDelete==null">
+                        `isDelete`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                        `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof packageModel.ItemCategory$QueryBuilder) == false" >
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

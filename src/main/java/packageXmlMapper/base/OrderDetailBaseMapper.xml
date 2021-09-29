@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="packageMapper.base.OrderDetailBaseMapper">
+
+
+    <insert id="insertOrderDetail"  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `order_detail`
+        (
+        <trim suffixOverrides=",">
+                    <if test="id!=null">
+                        `id`,
+                    </if>
+                    <if test="item_id!=null">
+                        `item_id`,
+                    </if>
+                    <if test="order_id!=null">
+                        `order_id`,
+                    </if>
+                    <if test="status!=null">
+                        `status`,
+                    </if>
+                    <if test="num!=null">
+                        `num`,
+                    </if>
+                    <if test="total!=null">
+                        `total`,
+                    </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+                <if test="id!=null">
+                    #{id},
+                </if>
+                <if test="item_id!=null">
+                    #{item_id},
+                </if>
+                <if test="order_id!=null">
+                    #{order_id},
+                </if>
+                <if test="status!=null">
+                    #{status},
+                </if>
+                <if test="num!=null">
+                    #{num},
+                </if>
+                <if test="total!=null">
+                    #{total},
+                </if>
+        </trim>
+        )
+    </insert>
+
+
+
+
+    <update id="updateOrderDetail">
+        UPDATE `order_detail`
+        SET
+        <trim suffixOverrides=",">
+            <if test="item_id != null">
+                `item_id` = #{item_id},
+            </if>
+            <if test="order_id != null">
+                `order_id` = #{order_id},
+            </if>
+            <if test="status != null">
+                `status` = #{status},
+            </if>
+            <if test="num != null">
+                `num` = #{num},
+            </if>
+            <if test="total != null and total!=''">
+                `total` = #{total},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+                `id` = #{id} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `order_detail`
+        SET
+        <trim suffixOverrides=",">
+        <if test="set.item_id != null">
+            `item_id` = #{set.item_id},
+        </if>
+        <if test="set.order_id != null">
+            `order_id` = #{set.order_id},
+        </if>
+        <if test="set.status != null">
+            `status` = #{set.status},
+        </if>
+        <if test="set.num != null">
+            `num` = #{set.num},
+        </if>
+        <if test="set.total != null and set.total!=''">
+            `total` = #{set.total},
+        </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+                <if test="where.idList != null">
+                    `id` in
+                    <foreach collection="where.idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.idSt !=null">
+                `id` >= #{where.idSt} and
+            </if>
+            <if test="where.idEd!=null">
+                `id` &lt;= #{where.idEd} and
+            </if>
+                <if test="where.item_idList != null">
+                    `item_id` in
+                    <foreach collection="where.item_idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.item_idSt !=null">
+                `item_id` >= #{where.item_idSt} and
+            </if>
+            <if test="where.item_idEd!=null">
+                `item_id` &lt;= #{where.item_idEd} and
+            </if>
+                <if test="where.order_idList != null">
+                    `order_id` in
+                    <foreach collection="where.order_idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.order_idSt !=null">
+                `order_id` >= #{where.order_idSt} and
+            </if>
+            <if test="where.order_idEd!=null">
+                `order_id` &lt;= #{where.order_idEd} and
+            </if>
+                <if test="where.statusList != null">
+                    `status` in
+                    <foreach collection="where.statusList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.statusSt !=null">
+                `status` >= #{where.statusSt} and
+            </if>
+            <if test="where.statusEd!=null">
+                `status` &lt;= #{where.statusEd} and
+            </if>
+                <if test="where.numList != null">
+                    `num` in
+                    <foreach collection="where.numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.numSt !=null">
+                `num` >= #{where.numSt} and
+            </if>
+            <if test="where.numEd!=null">
+                `num` &lt;= #{where.numEd} and
+            </if>
+                <if test="where.totalList != null">
+                    `total` in
+                    <foreach collection="where.totalList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyTotal!=null and where.fuzzyTotal.size()>0">
+                (
+                <foreach collection="where.fuzzyTotal"  separator="or" item="item">
+                    `Total` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyTotal!=null and where.rightFuzzyTotal.size()>0">
+                (
+                <foreach collection="where.rightFuzzyTotal"  separator="or" item="item">
+                    `Total` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="packageModel.OrderDetail" id="OrderDetailMap">
+        <result property="id" column="id"/>
+        <result property="item_id" column="item_id"/>
+        <result property="order_id" column="order_id"/>
+        <result property="status" column="status"/>
+        <result property="num" column="num"/>
+        <result property="total" column="total"/>
+    </resultMap>
+
+
+    <select id="queryOrderDetail" resultMap="OrderDetailMap">
+        select
+        <include refid="baseResult"></include>
+        from  `order_detail`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="item_id != null">
+                `item_id` = #{item_id} and
+            </if>
+            <if test="order_id != null">
+                `order_id` = #{order_id} and
+            </if>
+            <if test="status != null">
+                `status` = #{status} and
+            </if>
+            <if test="num != null">
+                `num` = #{num} and
+            </if>
+            <if test="total != null and total!=''">
+                `total` = #{total} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.OrderDetail$QueryBuilder) == true">
+                <if test="idList != null">
+                    `id` in
+                    <foreach collection="idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                <if test="item_idList != null">
+                    `item_id` in
+                    <foreach collection="item_idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="item_idSt !=null">
+                    `item_id` >= #{item_idSt} and
+                </if>
+                <if test="item_idEd!=null">
+                    `item_id` &lt;= #{item_idEd} and
+                </if>
+                <if test="order_idList != null">
+                    `order_id` in
+                    <foreach collection="order_idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="order_idSt !=null">
+                    `order_id` >= #{order_idSt} and
+                </if>
+                <if test="order_idEd!=null">
+                    `order_id` &lt;= #{order_idEd} and
+                </if>
+                <if test="statusList != null">
+                    `status` in
+                    <foreach collection="statusList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="statusSt !=null">
+                    `status` >= #{statusSt} and
+                </if>
+                <if test="statusEd!=null">
+                    `status` &lt;= #{statusEd} and
+                </if>
+                <if test="numList != null">
+                    `num` in
+                    <foreach collection="numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="numSt !=null">
+                    `num` >= #{numSt} and
+                </if>
+                <if test="numEd!=null">
+                    `num` &lt;= #{numEd} and
+                </if>
+                <if test="totalList != null">
+                    `total` in
+                    <foreach collection="totalList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyTotal!=null and fuzzyTotal.size()>0">
+                    (
+                    <foreach collection="fuzzyTotal"  separator="or" item="item">
+                        `Total` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyTotal!=null and rightFuzzyTotal.size()>0">
+                    (
+                    <foreach collection="rightFuzzyTotal"  separator="or" item="item">
+                        `Total` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryOrderDetailLimit1" resultMap="OrderDetailMap">
+        select
+        <include refid="baseResult"></include>
+        from  `order_detail`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="item_id != null">
+                `item_id` = #{item_id} and
+            </if>
+            <if test="order_id != null">
+                `order_id` = #{order_id} and
+            </if>
+            <if test="status != null">
+                `status` = #{status} and
+            </if>
+            <if test="num != null">
+                `num` = #{num} and
+            </if>
+            <if test="total != null and total!=''">
+                `total` = #{total} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.OrderDetail$QueryBuilder) == true">
+                    <if test="idList != null">
+                        `id` in
+                        <foreach collection="idList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                    <if test="item_idList != null">
+                        `item_id` in
+                        <foreach collection="item_idList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="item_idSt !=null">
+                    `item_id` >= #{item_idSt} and
+                </if>
+                <if test="item_idEd!=null">
+                    `item_id` &lt;= #{item_idEd} and
+                </if>
+                    <if test="order_idList != null">
+                        `order_id` in
+                        <foreach collection="order_idList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="order_idSt !=null">
+                    `order_id` >= #{order_idSt} and
+                </if>
+                <if test="order_idEd!=null">
+                    `order_id` &lt;= #{order_idEd} and
+                </if>
+                    <if test="statusList != null">
+                        `status` in
+                        <foreach collection="statusList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="statusSt !=null">
+                    `status` >= #{statusSt} and
+                </if>
+                <if test="statusEd!=null">
+                    `status` &lt;= #{statusEd} and
+                </if>
+                    <if test="numList != null">
+                        `num` in
+                        <foreach collection="numList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="numSt !=null">
+                    `num` >= #{numSt} and
+                </if>
+                <if test="numEd!=null">
+                    `num` &lt;= #{numEd} and
+                </if>
+                    <if test="totalList != null">
+                        `total` in
+                        <foreach collection="totalList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyTotal!=null and fuzzyTotal.size()>0">
+                    (
+                    <foreach collection="fuzzyTotal"  separator="or" item="item">
+                        `Total` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyTotal!=null and rightFuzzyTotal.size()>0">
+                    (
+                    <foreach collection="rightFuzzyTotal"  separator="or" item="item">
+                        `Total` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+        `id`,
+        `item_id`,
+        `order_id`,
+        `status`,
+        `num`,
+        `total`,
+        </trim>
+    </sql>
+
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test = "(_parameter instanceof packageModel.OrderDetail$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                    <if test="fetchFields.fetchFields.id==true">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.fetchFields.item_id==true">
+                        `item_id`,
+                    </if>
+                    <if test="fetchFields.fetchFields.order_id==true">
+                        `order_id`,
+                    </if>
+                    <if test="fetchFields.fetchFields.status==true">
+                        `status`,
+                    </if>
+                    <if test="fetchFields.fetchFields.num==true">
+                        `num`,
+                    </if>
+                    <if test="fetchFields.fetchFields.total==true">
+                        `total`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                    <if test="fetchFields.excludeFields.id==null">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.excludeFields.item_id==null">
+                        `item_id`,
+                    </if>
+                    <if test="fetchFields.excludeFields.order_id==null">
+                        `order_id`,
+                    </if>
+                    <if test="fetchFields.excludeFields.status==null">
+                        `status`,
+                    </if>
+                    <if test="fetchFields.excludeFields.num==null">
+                        `num`,
+                    </if>
+                    <if test="fetchFields.excludeFields.total==null">
+                        `total`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                        `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof packageModel.OrderDetail$QueryBuilder) == false" >
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

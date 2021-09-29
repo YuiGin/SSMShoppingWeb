@@ -1,0 +1,1803 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="packageMapper.base.itemBaseMapper">
+
+
+    <insert id="insertitem"  useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `item`
+        (
+        <trim suffixOverrides=",">
+                    <if test="id!=null">
+                        `id`,
+                    </if>
+                    <if test="name!=null">
+                        `name`,
+                    </if>
+                    <if test="price!=null">
+                        `price`,
+                    </if>
+                    <if test="scNum!=null">
+                        `scNum`,
+                    </if>
+                    <if test="gmNum!=null">
+                        `gmNum`,
+                    </if>
+                    <if test="url1!=null">
+                        `url1`,
+                    </if>
+                    <if test="url2!=null">
+                        `url2`,
+                    </if>
+                    <if test="url3!=null">
+                        `url3`,
+                    </if>
+                    <if test="url4!=null">
+                        `url4`,
+                    </if>
+                    <if test="url5!=null">
+                        `url5`,
+                    </if>
+                    <if test="ms!=null">
+                        `ms`,
+                    </if>
+                    <if test="pam1!=null">
+                        `pam1`,
+                    </if>
+                    <if test="pam2!=null">
+                        `pam2`,
+                    </if>
+                    <if test="pam3!=null">
+                        `pam3`,
+                    </if>
+                    <if test="val3!=null">
+                        `val3`,
+                    </if>
+                    <if test="val2!=null">
+                        `val2`,
+                    </if>
+                    <if test="val1!=null">
+                        `val1`,
+                    </if>
+                    <if test="type!=null">
+                        `type`,
+                    </if>
+                    <if test="zk!=null">
+                        `zk`,
+                    </if>
+                    <if test="category_id_one!=null">
+                        `category_id_one`,
+                    </if>
+                    <if test="category_id_two!=null">
+                        `category_id_two`,
+                    </if>
+                    <if test="isDelete!=null">
+                        `isDelete`,
+                    </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+                <if test="id!=null">
+                    #{id},
+                </if>
+                <if test="name!=null">
+                    #{name},
+                </if>
+                <if test="price!=null">
+                    #{price},
+                </if>
+                <if test="scNum!=null">
+                    #{scNum},
+                </if>
+                <if test="gmNum!=null">
+                    #{gmNum},
+                </if>
+                <if test="url1!=null">
+                    #{url1},
+                </if>
+                <if test="url2!=null">
+                    #{url2},
+                </if>
+                <if test="url3!=null">
+                    #{url3},
+                </if>
+                <if test="url4!=null">
+                    #{url4},
+                </if>
+                <if test="url5!=null">
+                    #{url5},
+                </if>
+                <if test="ms!=null">
+                    #{ms},
+                </if>
+                <if test="pam1!=null">
+                    #{pam1},
+                </if>
+                <if test="pam2!=null">
+                    #{pam2},
+                </if>
+                <if test="pam3!=null">
+                    #{pam3},
+                </if>
+                <if test="val3!=null">
+                    #{val3},
+                </if>
+                <if test="val2!=null">
+                    #{val2},
+                </if>
+                <if test="val1!=null">
+                    #{val1},
+                </if>
+                <if test="type!=null">
+                    #{type},
+                </if>
+                <if test="zk!=null">
+                    #{zk},
+                </if>
+                <if test="category_id_one!=null">
+                    #{category_id_one},
+                </if>
+                <if test="category_id_two!=null">
+                    #{category_id_two},
+                </if>
+                <if test="isDelete!=null">
+                    #{isDelete},
+                </if>
+        </trim>
+        )
+    </insert>
+
+
+
+
+    <update id="updateitem">
+        UPDATE `item`
+        SET
+        <trim suffixOverrides=",">
+            <if test="name != null and name!=''">
+                `name` = #{name},
+            </if>
+            <if test="price != null and price!=''">
+                `price` = #{price},
+            </if>
+            <if test="scNum != null">
+                `scNum` = #{scNum},
+            </if>
+            <if test="gmNum != null">
+                `gmNum` = #{gmNum},
+            </if>
+            <if test="url1 != null and url1!=''">
+                `url1` = #{url1},
+            </if>
+            <if test="url2 != null and url2!=''">
+                `url2` = #{url2},
+            </if>
+            <if test="url3 != null and url3!=''">
+                `url3` = #{url3},
+            </if>
+            <if test="url4 != null and url4!=''">
+                `url4` = #{url4},
+            </if>
+            <if test="url5 != null and url5!=''">
+                `url5` = #{url5},
+            </if>
+            <if test="ms != null and ms!=''">
+                `ms` = #{ms},
+            </if>
+            <if test="pam1 != null and pam1!=''">
+                `pam1` = #{pam1},
+            </if>
+            <if test="pam2 != null and pam2!=''">
+                `pam2` = #{pam2},
+            </if>
+            <if test="pam3 != null and pam3!=''">
+                `pam3` = #{pam3},
+            </if>
+            <if test="val3 != null and val3!=''">
+                `val3` = #{val3},
+            </if>
+            <if test="val2 != null and val2!=''">
+                `val2` = #{val2},
+            </if>
+            <if test="val1 != null and val1!=''">
+                `val1` = #{val1},
+            </if>
+            <if test="type != null">
+                `type` = #{type},
+            </if>
+            <if test="zk != null">
+                `zk` = #{zk},
+            </if>
+            <if test="category_id_one != null">
+                `category_id_one` = #{category_id_one},
+            </if>
+            <if test="category_id_two != null">
+                `category_id_two` = #{category_id_two},
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+                `id` = #{id} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `item`
+        SET
+        <trim suffixOverrides=",">
+        <if test="set.name != null and set.name!=''">
+            `name` = #{set.name},
+        </if>
+        <if test="set.price != null and set.price!=''">
+            `price` = #{set.price},
+        </if>
+        <if test="set.scNum != null">
+            `scNum` = #{set.scNum},
+        </if>
+        <if test="set.gmNum != null">
+            `gmNum` = #{set.gmNum},
+        </if>
+        <if test="set.url1 != null and set.url1!=''">
+            `url1` = #{set.url1},
+        </if>
+        <if test="set.url2 != null and set.url2!=''">
+            `url2` = #{set.url2},
+        </if>
+        <if test="set.url3 != null and set.url3!=''">
+            `url3` = #{set.url3},
+        </if>
+        <if test="set.url4 != null and set.url4!=''">
+            `url4` = #{set.url4},
+        </if>
+        <if test="set.url5 != null and set.url5!=''">
+            `url5` = #{set.url5},
+        </if>
+        <if test="set.ms != null and set.ms!=''">
+            `ms` = #{set.ms},
+        </if>
+        <if test="set.pam1 != null and set.pam1!=''">
+            `pam1` = #{set.pam1},
+        </if>
+        <if test="set.pam2 != null and set.pam2!=''">
+            `pam2` = #{set.pam2},
+        </if>
+        <if test="set.pam3 != null and set.pam3!=''">
+            `pam3` = #{set.pam3},
+        </if>
+        <if test="set.val3 != null and set.val3!=''">
+            `val3` = #{set.val3},
+        </if>
+        <if test="set.val2 != null and set.val2!=''">
+            `val2` = #{set.val2},
+        </if>
+        <if test="set.val1 != null and set.val1!=''">
+            `val1` = #{set.val1},
+        </if>
+        <if test="set.type != null">
+            `type` = #{set.type},
+        </if>
+        <if test="set.zk != null">
+            `zk` = #{set.zk},
+        </if>
+        <if test="set.category_id_one != null">
+            `category_id_one` = #{set.category_id_one},
+        </if>
+        <if test="set.category_id_two != null">
+            `category_id_two` = #{set.category_id_two},
+        </if>
+        <if test="set.isDelete != null">
+            `isDelete` = #{set.isDelete},
+        </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+                <if test="where.idList != null">
+                    `id` in
+                    <foreach collection="where.idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.idSt !=null">
+                `id` >= #{where.idSt} and
+            </if>
+            <if test="where.idEd!=null">
+                `id` &lt;= #{where.idEd} and
+            </if>
+                <if test="where.nameList != null">
+                    `name` in
+                    <foreach collection="where.nameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyName!=null and where.fuzzyName.size()>0">
+                (
+                <foreach collection="where.fuzzyName"  separator="or" item="item">
+                    `Name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyName!=null and where.rightFuzzyName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyName"  separator="or" item="item">
+                    `Name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.priceList != null">
+                    `price` in
+                    <foreach collection="where.priceList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyPrice!=null and where.fuzzyPrice.size()>0">
+                (
+                <foreach collection="where.fuzzyPrice"  separator="or" item="item">
+                    `Price` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyPrice!=null and where.rightFuzzyPrice.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPrice"  separator="or" item="item">
+                    `Price` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.scNumList != null">
+                    `scNum` in
+                    <foreach collection="where.scNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.scNumSt !=null">
+                `scNum` >= #{where.scNumSt} and
+            </if>
+            <if test="where.scNumEd!=null">
+                `scNum` &lt;= #{where.scNumEd} and
+            </if>
+                <if test="where.gmNumList != null">
+                    `gmNum` in
+                    <foreach collection="where.gmNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.gmNumSt !=null">
+                `gmNum` >= #{where.gmNumSt} and
+            </if>
+            <if test="where.gmNumEd!=null">
+                `gmNum` &lt;= #{where.gmNumEd} and
+            </if>
+                <if test="where.url1List != null">
+                    `url1` in
+                    <foreach collection="where.url1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyUrl1!=null and where.fuzzyUrl1.size()>0">
+                (
+                <foreach collection="where.fuzzyUrl1"  separator="or" item="item">
+                    `Url1` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyUrl1!=null and where.rightFuzzyUrl1.size()>0">
+                (
+                <foreach collection="where.rightFuzzyUrl1"  separator="or" item="item">
+                    `Url1` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.url2List != null">
+                    `url2` in
+                    <foreach collection="where.url2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyUrl2!=null and where.fuzzyUrl2.size()>0">
+                (
+                <foreach collection="where.fuzzyUrl2"  separator="or" item="item">
+                    `Url2` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyUrl2!=null and where.rightFuzzyUrl2.size()>0">
+                (
+                <foreach collection="where.rightFuzzyUrl2"  separator="or" item="item">
+                    `Url2` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.url3List != null">
+                    `url3` in
+                    <foreach collection="where.url3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyUrl3!=null and where.fuzzyUrl3.size()>0">
+                (
+                <foreach collection="where.fuzzyUrl3"  separator="or" item="item">
+                    `Url3` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyUrl3!=null and where.rightFuzzyUrl3.size()>0">
+                (
+                <foreach collection="where.rightFuzzyUrl3"  separator="or" item="item">
+                    `Url3` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.url4List != null">
+                    `url4` in
+                    <foreach collection="where.url4List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyUrl4!=null and where.fuzzyUrl4.size()>0">
+                (
+                <foreach collection="where.fuzzyUrl4"  separator="or" item="item">
+                    `Url4` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyUrl4!=null and where.rightFuzzyUrl4.size()>0">
+                (
+                <foreach collection="where.rightFuzzyUrl4"  separator="or" item="item">
+                    `Url4` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.url5List != null">
+                    `url5` in
+                    <foreach collection="where.url5List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyUrl5!=null and where.fuzzyUrl5.size()>0">
+                (
+                <foreach collection="where.fuzzyUrl5"  separator="or" item="item">
+                    `Url5` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyUrl5!=null and where.rightFuzzyUrl5.size()>0">
+                (
+                <foreach collection="where.rightFuzzyUrl5"  separator="or" item="item">
+                    `Url5` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.msList != null">
+                    `ms` in
+                    <foreach collection="where.msList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyMs!=null and where.fuzzyMs.size()>0">
+                (
+                <foreach collection="where.fuzzyMs"  separator="or" item="item">
+                    `Ms` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyMs!=null and where.rightFuzzyMs.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMs"  separator="or" item="item">
+                    `Ms` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.pam1List != null">
+                    `pam1` in
+                    <foreach collection="where.pam1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyPam1!=null and where.fuzzyPam1.size()>0">
+                (
+                <foreach collection="where.fuzzyPam1"  separator="or" item="item">
+                    `Pam1` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyPam1!=null and where.rightFuzzyPam1.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPam1"  separator="or" item="item">
+                    `Pam1` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.pam2List != null">
+                    `pam2` in
+                    <foreach collection="where.pam2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyPam2!=null and where.fuzzyPam2.size()>0">
+                (
+                <foreach collection="where.fuzzyPam2"  separator="or" item="item">
+                    `Pam2` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyPam2!=null and where.rightFuzzyPam2.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPam2"  separator="or" item="item">
+                    `Pam2` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.pam3List != null">
+                    `pam3` in
+                    <foreach collection="where.pam3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyPam3!=null and where.fuzzyPam3.size()>0">
+                (
+                <foreach collection="where.fuzzyPam3"  separator="or" item="item">
+                    `Pam3` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyPam3!=null and where.rightFuzzyPam3.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPam3"  separator="or" item="item">
+                    `Pam3` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.val3List != null">
+                    `val3` in
+                    <foreach collection="where.val3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyVal3!=null and where.fuzzyVal3.size()>0">
+                (
+                <foreach collection="where.fuzzyVal3"  separator="or" item="item">
+                    `Val3` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyVal3!=null and where.rightFuzzyVal3.size()>0">
+                (
+                <foreach collection="where.rightFuzzyVal3"  separator="or" item="item">
+                    `Val3` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.val2List != null">
+                    `val2` in
+                    <foreach collection="where.val2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyVal2!=null and where.fuzzyVal2.size()>0">
+                (
+                <foreach collection="where.fuzzyVal2"  separator="or" item="item">
+                    `Val2` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyVal2!=null and where.rightFuzzyVal2.size()>0">
+                (
+                <foreach collection="where.rightFuzzyVal2"  separator="or" item="item">
+                    `Val2` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.val1List != null">
+                    `val1` in
+                    <foreach collection="where.val1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test ="where.fuzzyVal1!=null and where.fuzzyVal1.size()>0">
+                (
+                <foreach collection="where.fuzzyVal1"  separator="or" item="item">
+                    `Val1` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test ="where.rightFuzzyVal1!=null and where.rightFuzzyVal1.size()>0">
+                (
+                <foreach collection="where.rightFuzzyVal1"  separator="or" item="item">
+                    `Val1` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+                <if test="where.typeList != null">
+                    `type` in
+                    <foreach collection="where.typeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.typeSt !=null">
+                `type` >= #{where.typeSt} and
+            </if>
+            <if test="where.typeEd!=null">
+                `type` &lt;= #{where.typeEd} and
+            </if>
+                <if test="where.zkList != null">
+                    `zk` in
+                    <foreach collection="where.zkList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.zkSt !=null">
+                `zk` >= #{where.zkSt} and
+            </if>
+            <if test="where.zkEd!=null">
+                `zk` &lt;= #{where.zkEd} and
+            </if>
+                <if test="where.category_id_oneList != null">
+                    `category_id_one` in
+                    <foreach collection="where.category_id_oneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.category_id_oneSt !=null">
+                `category_id_one` >= #{where.category_id_oneSt} and
+            </if>
+            <if test="where.category_id_oneEd!=null">
+                `category_id_one` &lt;= #{where.category_id_oneEd} and
+            </if>
+                <if test="where.category_id_twoList != null">
+                    `category_id_two` in
+                    <foreach collection="where.category_id_twoList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.category_id_twoSt !=null">
+                `category_id_two` >= #{where.category_id_twoSt} and
+            </if>
+            <if test="where.category_id_twoEd!=null">
+                `category_id_two` &lt;= #{where.category_id_twoEd} and
+            </if>
+                <if test="where.isDeleteList != null">
+                    `isDelete` in
+                    <foreach collection="where.isDeleteList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+            <if test="where.isDeleteSt !=null">
+                `isDelete` >= #{where.isDeleteSt} and
+            </if>
+            <if test="where.isDeleteEd!=null">
+                `isDelete` &lt;= #{where.isDeleteEd} and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="packageModel.item" id="itemMap">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+        <result property="scNum" column="scNum"/>
+        <result property="gmNum" column="gmNum"/>
+        <result property="url1" column="url1"/>
+        <result property="url2" column="url2"/>
+        <result property="url3" column="url3"/>
+        <result property="url4" column="url4"/>
+        <result property="url5" column="url5"/>
+        <result property="ms" column="ms"/>
+        <result property="pam1" column="pam1"/>
+        <result property="pam2" column="pam2"/>
+        <result property="pam3" column="pam3"/>
+        <result property="val3" column="val3"/>
+        <result property="val2" column="val2"/>
+        <result property="val1" column="val1"/>
+        <result property="type" column="type"/>
+        <result property="zk" column="zk"/>
+        <result property="category_id_one" column="category_id_one"/>
+        <result property="category_id_two" column="category_id_two"/>
+        <result property="isDelete" column="isDelete"/>
+    </resultMap>
+
+
+    <select id="queryitem" resultMap="itemMap">
+        select
+        <include refid="baseResult"></include>
+        from  `item`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="name != null and name!=''">
+                `name` = #{name} and
+            </if>
+            <if test="price != null and price!=''">
+                `price` = #{price} and
+            </if>
+            <if test="scNum != null">
+                `scNum` = #{scNum} and
+            </if>
+            <if test="gmNum != null">
+                `gmNum` = #{gmNum} and
+            </if>
+            <if test="url1 != null and url1!=''">
+                `url1` = #{url1} and
+            </if>
+            <if test="url2 != null and url2!=''">
+                `url2` = #{url2} and
+            </if>
+            <if test="url3 != null and url3!=''">
+                `url3` = #{url3} and
+            </if>
+            <if test="url4 != null and url4!=''">
+                `url4` = #{url4} and
+            </if>
+            <if test="url5 != null and url5!=''">
+                `url5` = #{url5} and
+            </if>
+            <if test="ms != null and ms!=''">
+                `ms` = #{ms} and
+            </if>
+            <if test="pam1 != null and pam1!=''">
+                `pam1` = #{pam1} and
+            </if>
+            <if test="pam2 != null and pam2!=''">
+                `pam2` = #{pam2} and
+            </if>
+            <if test="pam3 != null and pam3!=''">
+                `pam3` = #{pam3} and
+            </if>
+            <if test="val3 != null and val3!=''">
+                `val3` = #{val3} and
+            </if>
+            <if test="val2 != null and val2!=''">
+                `val2` = #{val2} and
+            </if>
+            <if test="val1 != null and val1!=''">
+                `val1` = #{val1} and
+            </if>
+            <if test="type != null">
+                `type` = #{type} and
+            </if>
+            <if test="zk != null">
+                `zk` = #{zk} and
+            </if>
+            <if test="category_id_one != null">
+                `category_id_one` = #{category_id_one} and
+            </if>
+            <if test="category_id_two != null">
+                `category_id_two` = #{category_id_two} and
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.item$QueryBuilder) == true">
+                <if test="idList != null">
+                    `id` in
+                    <foreach collection="idList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                <if test="nameList != null">
+                    `name` in
+                    <foreach collection="nameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyName!=null and fuzzyName.size()>0">
+                    (
+                    <foreach collection="fuzzyName"  separator="or" item="item">
+                        `Name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyName!=null and rightFuzzyName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyName"  separator="or" item="item">
+                        `Name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="priceList != null">
+                    `price` in
+                    <foreach collection="priceList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyPrice!=null and fuzzyPrice.size()>0">
+                    (
+                    <foreach collection="fuzzyPrice"  separator="or" item="item">
+                        `Price` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPrice!=null and rightFuzzyPrice.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPrice"  separator="or" item="item">
+                        `Price` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="scNumList != null">
+                    `scNum` in
+                    <foreach collection="scNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="scNumSt !=null">
+                    `scNum` >= #{scNumSt} and
+                </if>
+                <if test="scNumEd!=null">
+                    `scNum` &lt;= #{scNumEd} and
+                </if>
+                <if test="gmNumList != null">
+                    `gmNum` in
+                    <foreach collection="gmNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="gmNumSt !=null">
+                    `gmNum` >= #{gmNumSt} and
+                </if>
+                <if test="gmNumEd!=null">
+                    `gmNum` &lt;= #{gmNumEd} and
+                </if>
+                <if test="url1List != null">
+                    `url1` in
+                    <foreach collection="url1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyUrl1!=null and fuzzyUrl1.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl1"  separator="or" item="item">
+                        `Url1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl1!=null and rightFuzzyUrl1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl1"  separator="or" item="item">
+                        `Url1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="url2List != null">
+                    `url2` in
+                    <foreach collection="url2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyUrl2!=null and fuzzyUrl2.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl2"  separator="or" item="item">
+                        `Url2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl2!=null and rightFuzzyUrl2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl2"  separator="or" item="item">
+                        `Url2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="url3List != null">
+                    `url3` in
+                    <foreach collection="url3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyUrl3!=null and fuzzyUrl3.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl3"  separator="or" item="item">
+                        `Url3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl3!=null and rightFuzzyUrl3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl3"  separator="or" item="item">
+                        `Url3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="url4List != null">
+                    `url4` in
+                    <foreach collection="url4List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyUrl4!=null and fuzzyUrl4.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl4"  separator="or" item="item">
+                        `Url4` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl4!=null and rightFuzzyUrl4.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl4"  separator="or" item="item">
+                        `Url4` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="url5List != null">
+                    `url5` in
+                    <foreach collection="url5List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyUrl5!=null and fuzzyUrl5.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl5"  separator="or" item="item">
+                        `Url5` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl5!=null and rightFuzzyUrl5.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl5"  separator="or" item="item">
+                        `Url5` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="msList != null">
+                    `ms` in
+                    <foreach collection="msList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyMs!=null and fuzzyMs.size()>0">
+                    (
+                    <foreach collection="fuzzyMs"  separator="or" item="item">
+                        `Ms` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyMs!=null and rightFuzzyMs.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMs"  separator="or" item="item">
+                        `Ms` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="pam1List != null">
+                    `pam1` in
+                    <foreach collection="pam1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyPam1!=null and fuzzyPam1.size()>0">
+                    (
+                    <foreach collection="fuzzyPam1"  separator="or" item="item">
+                        `Pam1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam1!=null and rightFuzzyPam1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam1"  separator="or" item="item">
+                        `Pam1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="pam2List != null">
+                    `pam2` in
+                    <foreach collection="pam2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyPam2!=null and fuzzyPam2.size()>0">
+                    (
+                    <foreach collection="fuzzyPam2"  separator="or" item="item">
+                        `Pam2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam2!=null and rightFuzzyPam2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam2"  separator="or" item="item">
+                        `Pam2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="pam3List != null">
+                    `pam3` in
+                    <foreach collection="pam3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyPam3!=null and fuzzyPam3.size()>0">
+                    (
+                    <foreach collection="fuzzyPam3"  separator="or" item="item">
+                        `Pam3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam3!=null and rightFuzzyPam3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam3"  separator="or" item="item">
+                        `Pam3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="val3List != null">
+                    `val3` in
+                    <foreach collection="val3List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyVal3!=null and fuzzyVal3.size()>0">
+                    (
+                    <foreach collection="fuzzyVal3"  separator="or" item="item">
+                        `Val3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal3!=null and rightFuzzyVal3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal3"  separator="or" item="item">
+                        `Val3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="val2List != null">
+                    `val2` in
+                    <foreach collection="val2List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyVal2!=null and fuzzyVal2.size()>0">
+                    (
+                    <foreach collection="fuzzyVal2"  separator="or" item="item">
+                        `Val2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal2!=null and rightFuzzyVal2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal2"  separator="or" item="item">
+                        `Val2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="val1List != null">
+                    `val1` in
+                    <foreach collection="val1List" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test ="fuzzyVal1!=null and fuzzyVal1.size()>0">
+                    (
+                    <foreach collection="fuzzyVal1"  separator="or" item="item">
+                        `Val1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal1!=null and rightFuzzyVal1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal1"  separator="or" item="item">
+                        `Val1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="typeList != null">
+                    `type` in
+                    <foreach collection="typeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="typeSt !=null">
+                    `type` >= #{typeSt} and
+                </if>
+                <if test="typeEd!=null">
+                    `type` &lt;= #{typeEd} and
+                </if>
+                <if test="zkList != null">
+                    `zk` in
+                    <foreach collection="zkList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="zkSt !=null">
+                    `zk` >= #{zkSt} and
+                </if>
+                <if test="zkEd!=null">
+                    `zk` &lt;= #{zkEd} and
+                </if>
+                <if test="category_id_oneList != null">
+                    `category_id_one` in
+                    <foreach collection="category_id_oneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="category_id_oneSt !=null">
+                    `category_id_one` >= #{category_id_oneSt} and
+                </if>
+                <if test="category_id_oneEd!=null">
+                    `category_id_one` &lt;= #{category_id_oneEd} and
+                </if>
+                <if test="category_id_twoList != null">
+                    `category_id_two` in
+                    <foreach collection="category_id_twoList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="category_id_twoSt !=null">
+                    `category_id_two` >= #{category_id_twoSt} and
+                </if>
+                <if test="category_id_twoEd!=null">
+                    `category_id_two` &lt;= #{category_id_twoEd} and
+                </if>
+                <if test="isDeleteList != null">
+                    `isDelete` in
+                    <foreach collection="isDeleteList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach> and
+                </if>
+                <if test="isDeleteSt !=null">
+                    `isDelete` >= #{isDeleteSt} and
+                </if>
+                <if test="isDeleteEd!=null">
+                    `isDelete` &lt;= #{isDeleteEd} and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryitemLimit1" resultMap="itemMap">
+        select
+        <include refid="baseResult"></include>
+        from  `item`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="id != null">
+                `id` = #{id} and
+            </if>
+            <if test="name != null and name!=''">
+                `name` = #{name} and
+            </if>
+            <if test="price != null and price!=''">
+                `price` = #{price} and
+            </if>
+            <if test="scNum != null">
+                `scNum` = #{scNum} and
+            </if>
+            <if test="gmNum != null">
+                `gmNum` = #{gmNum} and
+            </if>
+            <if test="url1 != null and url1!=''">
+                `url1` = #{url1} and
+            </if>
+            <if test="url2 != null and url2!=''">
+                `url2` = #{url2} and
+            </if>
+            <if test="url3 != null and url3!=''">
+                `url3` = #{url3} and
+            </if>
+            <if test="url4 != null and url4!=''">
+                `url4` = #{url4} and
+            </if>
+            <if test="url5 != null and url5!=''">
+                `url5` = #{url5} and
+            </if>
+            <if test="ms != null and ms!=''">
+                `ms` = #{ms} and
+            </if>
+            <if test="pam1 != null and pam1!=''">
+                `pam1` = #{pam1} and
+            </if>
+            <if test="pam2 != null and pam2!=''">
+                `pam2` = #{pam2} and
+            </if>
+            <if test="pam3 != null and pam3!=''">
+                `pam3` = #{pam3} and
+            </if>
+            <if test="val3 != null and val3!=''">
+                `val3` = #{val3} and
+            </if>
+            <if test="val2 != null and val2!=''">
+                `val2` = #{val2} and
+            </if>
+            <if test="val1 != null and val1!=''">
+                `val1` = #{val1} and
+            </if>
+            <if test="type != null">
+                `type` = #{type} and
+            </if>
+            <if test="zk != null">
+                `zk` = #{zk} and
+            </if>
+            <if test="category_id_one != null">
+                `category_id_one` = #{category_id_one} and
+            </if>
+            <if test="category_id_two != null">
+                `category_id_two` = #{category_id_two} and
+            </if>
+            <if test="isDelete != null">
+                `isDelete` = #{isDelete} and
+            </if>
+            <if test = "(_parameter instanceof packageModel.item$QueryBuilder) == true">
+                    <if test="idList != null">
+                        `id` in
+                        <foreach collection="idList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="idSt !=null">
+                    `id` >= #{idSt} and
+                </if>
+                <if test="idEd!=null">
+                    `id` &lt;= #{idEd} and
+                </if>
+                    <if test="nameList != null">
+                        `name` in
+                        <foreach collection="nameList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyName!=null and fuzzyName.size()>0">
+                    (
+                    <foreach collection="fuzzyName"  separator="or" item="item">
+                        `Name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyName!=null and rightFuzzyName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyName"  separator="or" item="item">
+                        `Name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="priceList != null">
+                        `price` in
+                        <foreach collection="priceList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyPrice!=null and fuzzyPrice.size()>0">
+                    (
+                    <foreach collection="fuzzyPrice"  separator="or" item="item">
+                        `Price` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPrice!=null and rightFuzzyPrice.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPrice"  separator="or" item="item">
+                        `Price` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="scNumList != null">
+                        `scNum` in
+                        <foreach collection="scNumList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="scNumSt !=null">
+                    `scNum` >= #{scNumSt} and
+                </if>
+                <if test="scNumEd!=null">
+                    `scNum` &lt;= #{scNumEd} and
+                </if>
+                    <if test="gmNumList != null">
+                        `gmNum` in
+                        <foreach collection="gmNumList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="gmNumSt !=null">
+                    `gmNum` >= #{gmNumSt} and
+                </if>
+                <if test="gmNumEd!=null">
+                    `gmNum` &lt;= #{gmNumEd} and
+                </if>
+                    <if test="url1List != null">
+                        `url1` in
+                        <foreach collection="url1List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyUrl1!=null and fuzzyUrl1.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl1"  separator="or" item="item">
+                        `Url1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl1!=null and rightFuzzyUrl1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl1"  separator="or" item="item">
+                        `Url1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="url2List != null">
+                        `url2` in
+                        <foreach collection="url2List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyUrl2!=null and fuzzyUrl2.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl2"  separator="or" item="item">
+                        `Url2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl2!=null and rightFuzzyUrl2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl2"  separator="or" item="item">
+                        `Url2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="url3List != null">
+                        `url3` in
+                        <foreach collection="url3List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyUrl3!=null and fuzzyUrl3.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl3"  separator="or" item="item">
+                        `Url3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl3!=null and rightFuzzyUrl3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl3"  separator="or" item="item">
+                        `Url3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="url4List != null">
+                        `url4` in
+                        <foreach collection="url4List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyUrl4!=null and fuzzyUrl4.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl4"  separator="or" item="item">
+                        `Url4` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl4!=null and rightFuzzyUrl4.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl4"  separator="or" item="item">
+                        `Url4` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="url5List != null">
+                        `url5` in
+                        <foreach collection="url5List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyUrl5!=null and fuzzyUrl5.size()>0">
+                    (
+                    <foreach collection="fuzzyUrl5"  separator="or" item="item">
+                        `Url5` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyUrl5!=null and rightFuzzyUrl5.size()>0">
+                    (
+                    <foreach collection="rightFuzzyUrl5"  separator="or" item="item">
+                        `Url5` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="msList != null">
+                        `ms` in
+                        <foreach collection="msList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyMs!=null and fuzzyMs.size()>0">
+                    (
+                    <foreach collection="fuzzyMs"  separator="or" item="item">
+                        `Ms` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyMs!=null and rightFuzzyMs.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMs"  separator="or" item="item">
+                        `Ms` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="pam1List != null">
+                        `pam1` in
+                        <foreach collection="pam1List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyPam1!=null and fuzzyPam1.size()>0">
+                    (
+                    <foreach collection="fuzzyPam1"  separator="or" item="item">
+                        `Pam1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam1!=null and rightFuzzyPam1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam1"  separator="or" item="item">
+                        `Pam1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="pam2List != null">
+                        `pam2` in
+                        <foreach collection="pam2List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyPam2!=null and fuzzyPam2.size()>0">
+                    (
+                    <foreach collection="fuzzyPam2"  separator="or" item="item">
+                        `Pam2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam2!=null and rightFuzzyPam2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam2"  separator="or" item="item">
+                        `Pam2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="pam3List != null">
+                        `pam3` in
+                        <foreach collection="pam3List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyPam3!=null and fuzzyPam3.size()>0">
+                    (
+                    <foreach collection="fuzzyPam3"  separator="or" item="item">
+                        `Pam3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyPam3!=null and rightFuzzyPam3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPam3"  separator="or" item="item">
+                        `Pam3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="val3List != null">
+                        `val3` in
+                        <foreach collection="val3List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyVal3!=null and fuzzyVal3.size()>0">
+                    (
+                    <foreach collection="fuzzyVal3"  separator="or" item="item">
+                        `Val3` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal3!=null and rightFuzzyVal3.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal3"  separator="or" item="item">
+                        `Val3` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="val2List != null">
+                        `val2` in
+                        <foreach collection="val2List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyVal2!=null and fuzzyVal2.size()>0">
+                    (
+                    <foreach collection="fuzzyVal2"  separator="or" item="item">
+                        `Val2` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal2!=null and rightFuzzyVal2.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal2"  separator="or" item="item">
+                        `Val2` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="val1List != null">
+                        `val1` in
+                        <foreach collection="val1List" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test ="fuzzyVal1!=null and fuzzyVal1.size()>0">
+                    (
+                    <foreach collection="fuzzyVal1"  separator="or" item="item">
+                        `Val1` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test ="rightFuzzyVal1!=null and rightFuzzyVal1.size()>0">
+                    (
+                    <foreach collection="rightFuzzyVal1"  separator="or" item="item">
+                        `Val1` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                    <if test="typeList != null">
+                        `type` in
+                        <foreach collection="typeList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="typeSt !=null">
+                    `type` >= #{typeSt} and
+                </if>
+                <if test="typeEd!=null">
+                    `type` &lt;= #{typeEd} and
+                </if>
+                    <if test="zkList != null">
+                        `zk` in
+                        <foreach collection="zkList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="zkSt !=null">
+                    `zk` >= #{zkSt} and
+                </if>
+                <if test="zkEd!=null">
+                    `zk` &lt;= #{zkEd} and
+                </if>
+                    <if test="category_id_oneList != null">
+                        `category_id_one` in
+                        <foreach collection="category_id_oneList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="category_id_oneSt !=null">
+                    `category_id_one` >= #{category_id_oneSt} and
+                </if>
+                <if test="category_id_oneEd!=null">
+                    `category_id_one` &lt;= #{category_id_oneEd} and
+                </if>
+                    <if test="category_id_twoList != null">
+                        `category_id_two` in
+                        <foreach collection="category_id_twoList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="category_id_twoSt !=null">
+                    `category_id_two` >= #{category_id_twoSt} and
+                </if>
+                <if test="category_id_twoEd!=null">
+                    `category_id_two` &lt;= #{category_id_twoEd} and
+                </if>
+                    <if test="isDeleteList != null">
+                        `isDelete` in
+                        <foreach collection="isDeleteList" close=")" open="(" separator="," item="item">
+                            #{item}
+                        </foreach> and
+                    </if>
+                <if test="isDeleteSt !=null">
+                    `isDelete` >= #{isDeleteSt} and
+                </if>
+                <if test="isDeleteEd!=null">
+                    `isDelete` &lt;= #{isDeleteEd} and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+        `id`,
+        `name`,
+        `price`,
+        `scNum`,
+        `gmNum`,
+        `url1`,
+        `url2`,
+        `url3`,
+        `url4`,
+        `url5`,
+        `ms`,
+        `pam1`,
+        `pam2`,
+        `pam3`,
+        `val3`,
+        `val2`,
+        `val1`,
+        `type`,
+        `zk`,
+        `category_id_one`,
+        `category_id_two`,
+        `isDelete`,
+        </trim>
+    </sql>
+
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test = "(_parameter instanceof packageModel.item$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                    <if test="fetchFields.fetchFields.id==true">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.fetchFields.name==true">
+                        `name`,
+                    </if>
+                    <if test="fetchFields.fetchFields.price==true">
+                        `price`,
+                    </if>
+                    <if test="fetchFields.fetchFields.scNum==true">
+                        `scNum`,
+                    </if>
+                    <if test="fetchFields.fetchFields.gmNum==true">
+                        `gmNum`,
+                    </if>
+                    <if test="fetchFields.fetchFields.url1==true">
+                        `url1`,
+                    </if>
+                    <if test="fetchFields.fetchFields.url2==true">
+                        `url2`,
+                    </if>
+                    <if test="fetchFields.fetchFields.url3==true">
+                        `url3`,
+                    </if>
+                    <if test="fetchFields.fetchFields.url4==true">
+                        `url4`,
+                    </if>
+                    <if test="fetchFields.fetchFields.url5==true">
+                        `url5`,
+                    </if>
+                    <if test="fetchFields.fetchFields.ms==true">
+                        `ms`,
+                    </if>
+                    <if test="fetchFields.fetchFields.pam1==true">
+                        `pam1`,
+                    </if>
+                    <if test="fetchFields.fetchFields.pam2==true">
+                        `pam2`,
+                    </if>
+                    <if test="fetchFields.fetchFields.pam3==true">
+                        `pam3`,
+                    </if>
+                    <if test="fetchFields.fetchFields.val3==true">
+                        `val3`,
+                    </if>
+                    <if test="fetchFields.fetchFields.val2==true">
+                        `val2`,
+                    </if>
+                    <if test="fetchFields.fetchFields.val1==true">
+                        `val1`,
+                    </if>
+                    <if test="fetchFields.fetchFields.type==true">
+                        `type`,
+                    </if>
+                    <if test="fetchFields.fetchFields.zk==true">
+                        `zk`,
+                    </if>
+                    <if test="fetchFields.fetchFields.category_id_one==true">
+                        `category_id_one`,
+                    </if>
+                    <if test="fetchFields.fetchFields.category_id_two==true">
+                        `category_id_two`,
+                    </if>
+                    <if test="fetchFields.fetchFields.isDelete==true">
+                        `isDelete`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                    <if test="fetchFields.excludeFields.id==null">
+                        `id`,
+                    </if>
+                    <if test="fetchFields.excludeFields.name==null">
+                        `name`,
+                    </if>
+                    <if test="fetchFields.excludeFields.price==null">
+                        `price`,
+                    </if>
+                    <if test="fetchFields.excludeFields.scNum==null">
+                        `scNum`,
+                    </if>
+                    <if test="fetchFields.excludeFields.gmNum==null">
+                        `gmNum`,
+                    </if>
+                    <if test="fetchFields.excludeFields.url1==null">
+                        `url1`,
+                    </if>
+                    <if test="fetchFields.excludeFields.url2==null">
+                        `url2`,
+                    </if>
+                    <if test="fetchFields.excludeFields.url3==null">
+                        `url3`,
+                    </if>
+                    <if test="fetchFields.excludeFields.url4==null">
+                        `url4`,
+                    </if>
+                    <if test="fetchFields.excludeFields.url5==null">
+                        `url5`,
+                    </if>
+                    <if test="fetchFields.excludeFields.ms==null">
+                        `ms`,
+                    </if>
+                    <if test="fetchFields.excludeFields.pam1==null">
+                        `pam1`,
+                    </if>
+                    <if test="fetchFields.excludeFields.pam2==null">
+                        `pam2`,
+                    </if>
+                    <if test="fetchFields.excludeFields.pam3==null">
+                        `pam3`,
+                    </if>
+                    <if test="fetchFields.excludeFields.val3==null">
+                        `val3`,
+                    </if>
+                    <if test="fetchFields.excludeFields.val2==null">
+                        `val2`,
+                    </if>
+                    <if test="fetchFields.excludeFields.val1==null">
+                        `val1`,
+                    </if>
+                    <if test="fetchFields.excludeFields.type==null">
+                        `type`,
+                    </if>
+                    <if test="fetchFields.excludeFields.zk==null">
+                        `zk`,
+                    </if>
+                    <if test="fetchFields.excludeFields.category_id_one==null">
+                        `category_id_one`,
+                    </if>
+                    <if test="fetchFields.excludeFields.category_id_two==null">
+                        `category_id_two`,
+                    </if>
+                    <if test="fetchFields.excludeFields.isDelete==null">
+                        `isDelete`,
+                    </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                        `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof packageModel.item$QueryBuilder) == false" >
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>
